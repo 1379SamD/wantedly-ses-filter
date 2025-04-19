@@ -1,16 +1,15 @@
 import express from "express";
+import cors from "cors";
 import cards from "./routes/cards.js";
 
 // Expressアプリケーションのインスタンスを作成
 const app = express();
 
+// CORSを許可する
+app.use(cors());
+
 // ポート番号設定
 const PORT = 3000;
-
-// ルート(ホームページ)にアクセスがあった場合
-// app.get("/", (req, res) => {
-//   res.send("APIが動いています！");
-// });
 
 // ルーティングを適用
 app.use("/api", cards);

@@ -17,60 +17,76 @@ const scrapeData = async () => {
   const allCardData: CardData[] = [];
   // ses企業ワードを配列に格納
   const sesKeywords = ["客先常駐", "常駐", "派遣", "開発支援", "SES"];
+  // NOTses企業ワードを配列に格納
+  const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし"];
   
   for(let pageNum = 1; pageNum <=5; pageNum++) {
 
     // puppeteerでブラウザを立ち上げる
-    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox'],});
+    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--dns-prefetch-disable'],});
     const page = await browser.newPage();
   
     // ユーザーエージェント設定
     await page.setUserAgent(
-      'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) ' +
-      'AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 ' +
-      'Mobile/15E148 Safari/604.1'
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' +
+      'AppleWebKit/537.36 (KHTML, like Gecko) ' +
+      'Chrome/122.0.0.0 Safari/537.36'
     );
   
     // ビューポート設定
     await page.setViewport({
-      width: 950,
-      height: 812,
-      isMobile: true,
+      width: 1280,
+      height: 800,
     });
 
     // スクレイピングしたいURLにアクセス
     const url = `https://www.wantedly.com/projects?new=true&page=${pageNum}&occupationTypes=jp__engineering&jp__engineering=jp__web_engineer&hiringTypes=mid_career&order=recent`;
     await page.goto(url, {waitUntil: "domcontentloaded"});
-  
+
+    // 取得したい要素が表示されるまで待機
+    // await page.waitForSelector("li[class*='ProjectListJobPostsLaptop__ProjectListItem']", {visible: true});
+    
+    // 一秒間待機
+    // await new Promise(resolve => setTimeout(resolve, 5000));
+
     // 必要なデータを抽出
     const pageData = await page.evaluate(() => {
       // １ページの企業情報のliタグを取得
-      const items = document.querySelectorAll("li[class*='ProjectListJobPostsMobile__ProjectListItem']");
+      const items = document.querySelectorAll("li[class*='ProjectListJobPostsLaptop__ProjectListItem']");
       // liタグ情報を回して、1ページ全ての情報を取得
       return Array.from(items).map(item => {
-        const title = item.querySelector("h2[class*='ProjectListJobPostItem__TitleText']")?.textContent || "No title found";
-        const companyName = item.querySelector("#company-name")?.textContent || "No company-name found";
-        const topImagePic = item.querySelector("section img")?.getAttribute("src") || "No image found";
-        const wantedlyUrl = "https://www.wantedly.com" + item.querySelector("section a")?.getAttribute("href") || "";
-        
-        // 取得したデータをオブジェクトにまとめて返す
-        return {
-          title,
-          companyName,
-          topImagePic,
-          wantedlyUrl,
-        };
-      })
+          // liタグがnullであれば、nullを返す ⇒ 最後にnull以外を格納
+          if(!item.textContent) {
+            return null;
+          }
+          const title = item.querySelector("h2[class*='ProjectListJobPostItem__TitleText']")?.textContent || "No title found";
+          const companyName = item.querySelector("#company-name")?.textContent || "No company-name found";
+          const topImagePic = item.querySelector("section img")?.getAttribute("src") || "No image found";
+          const wantedlyUrl = "https://www.wantedly.com" + (item.querySelector("section a")?.getAttribute("href")?.trim() || "");
+  
+          // 取得したデータをオブジェクトにまとめて返す
+          return {
+            title,
+            companyName,
+            topImagePic,
+            wantedlyUrl,
+          };
+          // 最後にnull以外を取得
+        }).filter(item => item !== null);
     });
     
     // ses企業判定処理
-    const isSes = (text: string): boolean => {return sesKeywords.some(keyword => text.includes(keyword))};
+    const isSes = (text: string): boolean => {
+      // 否定ワードが含まれていたらfalse(SESではない)
+      if(notSesKeywords.some(keyword => text.includes(keyword))) {
+        return false;
+      }
+      return sesKeywords.some(keyword => text.includes(keyword));
+    };
   
     // 各カードの詳細ページに飛んでSES判定情報を取得
     for(const card of pageData) {
       const detailPage = await browser.newPage();
-      await detailPage.goto(card.wantedlyUrl, {waitUntil: "domcontentloaded"});
-  
       // SES判定(詳細ページ内での処理)
       const description = await detailPage.evaluate(() => {
         // SES判定に使う要素をすべて取得
