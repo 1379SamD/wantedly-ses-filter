@@ -6,11 +6,11 @@ const scrapeData = async () => {
 
   // 型定義
   type CardData = {
-    title: string;
-    companyName: string;
-    topImagePic: string;
-    wantedlyUrl: string;
-    sesFlag: boolean;
+    title?: String;
+    companyNam?: String;
+    topImagePic?: String;
+    wantedlyUrl?: String;
+    sesFlag?: Boolean;
   };
 
   // 全カード情報格納
@@ -20,7 +20,7 @@ const scrapeData = async () => {
   // NOTses企業ワードを配列に格納
   const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし"];
   
-  for(let pageNum = 1; pageNum <=5; pageNum++) {
+  for(let pageNum = 1; pageNum <=50; pageNum++) {
 
     // puppeteerでブラウザを立ち上げる
     const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--dns-prefetch-disable'],});
@@ -42,12 +42,6 @@ const scrapeData = async () => {
     // スクレイピングしたいURLにアクセス
     const url = `https://www.wantedly.com/projects?new=true&page=${pageNum}&occupationTypes=jp__engineering&jp__engineering=jp__web_engineer&hiringTypes=mid_career&order=recent`;
     await page.goto(url, {waitUntil: "domcontentloaded"});
-
-    // 取得したい要素が表示されるまで待機
-    // await page.waitForSelector("li[class*='ProjectListJobPostsLaptop__ProjectListItem']", {visible: true});
-    
-    // 一秒間待機
-    // await new Promise(resolve => setTimeout(resolve, 5000));
 
     // 必要なデータを抽出
     const pageData = await page.evaluate(() => {
@@ -86,7 +80,27 @@ const scrapeData = async () => {
   
     // 各カードの詳細ページに飛んでSES判定情報を取得
     for(const card of pageData) {
+      // カードがNULLの場合はスキップ
+      if (!card) continue;
+
       const detailPage = await browser.newPage();
+      
+      // ユーザーエージェント設定
+      await detailPage.setUserAgent(
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' +
+        'AppleWebKit/537.36 (KHTML, like Gecko) ' +
+        'Chrome/122.0.0.0 Safari/537.36'
+      );
+  
+      // ビューポート設定
+      await detailPage.setViewport({
+        width: 1280,
+        height: 800,
+      });
+
+      // 詳細ページにアクセス
+      await detailPage.goto(card.wantedlyUrl, {waitUntil: "domcontentloaded"});
+
       // SES判定(詳細ページ内での処理)
       const description = await detailPage.evaluate(() => {
         // SES判定に使う要素をすべて取得
@@ -116,6 +130,5 @@ const scrapeData = async () => {
   } else {
     console.warn("データが取得できなかったため、DBの更新は行いませんでした");
   }
-  await closeDB();
 }
 scrapeData();

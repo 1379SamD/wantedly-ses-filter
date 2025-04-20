@@ -1,16 +1,19 @@
 import { connectDB, closeDB } from "./db.js";
+import { Card } from "../models/Card.js";
 
-export async function saveToMongo(data: any) {
+export const saveToMongo = async(data: object[]) => {
   try {
-    const db = await connectDB();
-    const collection = db.collection("cards");
+    await connectDB();
 
     // 既存データを全て削除
-    await collection.deleteMany({});
+    await Card.deleteMany({});
     console.log("既存データを削除しました");
 
-    await collection.insertMany(data);
+    // 新しいデータを挿入
+    await Card.insertMany(data);
     console.log("データを保存しました");
+
+    await closeDB();
 
   } catch (err) {
     console.error("MongoDB保存中にエラー:", err);
