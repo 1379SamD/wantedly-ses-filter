@@ -1,16 +1,17 @@
 import puppeteer from "puppeteer";
 import { saveToMongo } from "../db/saveData.js";
 import { closeDB } from "../db/db.js"
+import pLimit from "p-limit";
 
 const scrapeData = async () => {
 
   // 型定義
   type CardData = {
-    title?: String;
-    companyNam?: String;
-    topImagePic?: String;
-    wantedlyUrl?: String;
-    sesFlag?: Boolean;
+    title: string;
+    companyName: string;
+    topImagePic: string;
+    wantedlyUrl: string | null;
+    sesFlag?:boolean;
   };
 
   // 全カード情報格納
@@ -19,6 +20,15 @@ const scrapeData = async () => {
   const sesKeywords = ["客先常駐", "常駐", "派遣", "開発支援", "SES"];
   // NOTses企業ワードを配列に格納
   const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし"];
+
+  // ses企業判定処理
+  const isSes = (text: string): boolean => {
+        // 否定ワードが含まれていたらfalse(SESではない)
+        if(notSesKeywords.some(keyword => text.includes(keyword))) {
+          return false;
+        }
+        return sesKeywords.some(keyword => text.includes(keyword));
+  };
   
   for(let pageNum = 1; pageNum <=50; pageNum++) {
 
@@ -56,8 +66,9 @@ const scrapeData = async () => {
           const title = item.querySelector("h2[class*='ProjectListJobPostItem__TitleText']")?.textContent || "No title found";
           const companyName = item.querySelector("#company-name")?.textContent || "No company-name found";
           const topImagePic = item.querySelector("section img")?.getAttribute("src") || "No image found";
-          const wantedlyUrl = "https://www.wantedly.com" + (item.querySelector("section a")?.getAttribute("href")?.trim() || "");
-  
+          const href = item.querySelector("section a")?.getAttribute("href")?.trim();
+          const wantedlyUrl = href ? "https://www.wantedly.com" + href : null;
+
           // 取得したデータをオブジェクトにまとめて返す
           return {
             title,
@@ -66,23 +77,16 @@ const scrapeData = async () => {
             wantedlyUrl,
           };
           // 最後にnull以外を取得
-        }).filter(item => item !== null);
-    });
-    
-    // ses企業判定処理
-    const isSes = (text: string): boolean => {
-      // 否定ワードが含まれていたらfalse(SESではない)
-      if(notSesKeywords.some(keyword => text.includes(keyword))) {
-        return false;
-      }
-      return sesKeywords.some(keyword => text.includes(keyword));
-    };
+        }).filter(item => item !== null && item.wantedlyUrl !== null);
+    }) as CardData[];
   
     // 各カードの詳細ページに飛んでSES判定情報を取得
-    for(const card of pageData) {
-      // カードがNULLの場合はスキップ
-      if (!card) continue;
+    // 並列化するための並列数(10ページ設定)
+    const limit = pLimit(10);
 
+    // 並列処理化する関数
+    const processCard = async (card: CardData) => {
+      // console.log(`開始: ${card.title}`);
       const detailPage = await browser.newPage();
       
       // ユーザーエージェント設定
@@ -99,7 +103,7 @@ const scrapeData = async () => {
       });
 
       // 詳細ページにアクセス
-      await detailPage.goto(card.wantedlyUrl, {waitUntil: "domcontentloaded"});
+      await detailPage.goto(card.wantedlyUrl!, {waitUntil: "domcontentloaded"});
 
       // SES判定(詳細ページ内での処理)
       const description = await detailPage.evaluate(() => {
@@ -120,10 +124,18 @@ const scrapeData = async () => {
         ...card,
         sesFlag,
       });
+      // console.log(`終了: ${card.title}`);
     }
+    // limitで並列に実行
+    const tasks = pageData.map(card => limit(()=>processCard(card!)));
+    // 全てのprocessCardが終わるのを待ってから閉じる
+    await Promise.all(tasks);
+
     console.log(pageNum);
     await browser.close();
-  }
+  };
+
+
   console.log(allCardData);
   if(allCardData.length > 0) {
     await saveToMongo(allCardData);
