@@ -13,9 +13,7 @@ export default defineConfig({
     alias: {
       crypto: 'crypto-browserify',
       stream: 'stream-browserify',
+      buffer: 'buffer', // もし他の依存が buffer を使用する場合
     },
-  },
-  define: {
-    global: 'globalThis',
   },
 })
