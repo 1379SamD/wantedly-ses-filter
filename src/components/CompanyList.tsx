@@ -15,8 +15,9 @@ export const CompanyList = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("http://localhost:3000/api/cards");
-      setCompanies(res.data);
+      const res = await fetch("/scrapeData.json");
+      const data = await res.json();
+      setCompanies(data);
     };
     fetchData();
   }, []);

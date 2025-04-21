@@ -1,25 +1,26 @@
 import puppeteer from "puppeteer";
-import { saveToMongo } from "../db/saveData.js";
-import { closeDB } from "../db/db.js"
+// import { saveToMongo } from "../db/saveData.js";
+// import { closeDB } from "../db/db.js"
 import pLimit from "p-limit";
+import { CardData } from "../types/card";
 
-const scrapeData = async () => {
+export const scrapeData = async () => {
 
   // 型定義
-  type CardData = {
-    title: string;
-    companyName: string;
-    topImagePic: string;
-    wantedlyUrl: string | null;
-    sesFlag?:boolean;
-  };
+  // type CardData = {
+  //   title: string;
+  //   companyName: string;
+  //   topImagePic: string;
+  //   wantedlyUrl: string | null;
+  //   sesFlag?:boolean;
+  // };
 
   // 全カード情報格納
   const allCardData: CardData[] = [];
   // ses企業ワードを配列に格納
-  const sesKeywords = ["客先常駐", "常駐", "派遣", "開発支援", "SES"];
+  const sesKeywords = ["客先", "常駐", "派遣", "開発支援", "エンジニア支援", "SES", "ses", "配属先", "準委任契約", "クライアント先", "プロジェクト参画", "現場で活躍中！"];
   // NOTses企業ワードを配列に格納
-  const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし"];
+  const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし", "内製化"];
 
   // ses企業判定処理
   const isSes = (text: string): boolean => {
@@ -135,12 +136,13 @@ const scrapeData = async () => {
     await browser.close();
   };
 
-
   console.log(allCardData);
   if(allCardData.length > 0) {
-    await saveToMongo(allCardData);
+    // await saveToMongo(allCardData);
+    const filteredData = allCardData.filter(item => item.sesFlag === false);
+    return filteredData;
   } else {
-    console.warn("データが取得できなかったため、DBの更新は行いませんでした");
+    console.warn("データが取得できなかったため、データの更新は行いませんでした");
   }
 }
-scrapeData();
+// scrapeData();
