@@ -1,19 +1,8 @@
 import puppeteer from "puppeteer";
-// import { saveToMongo } from "../db/saveData.js";
-// import { closeDB } from "../db/db.js"
 import pLimit from "p-limit";
 import { CardData } from "../types/card";
 
 export const scrapeData = async () => {
-
-  // 型定義
-  // type CardData = {
-  //   title: string;
-  //   companyName: string;
-  //   topImagePic: string;
-  //   wantedlyUrl: string | null;
-  //   sesFlag?:boolean;
-  // };
 
   // 全カード情報格納
   const allCardData: CardData[] = [];
@@ -31,7 +20,7 @@ export const scrapeData = async () => {
         return sesKeywords.some(keyword => text.includes(keyword));
   };
   
-  for(let pageNum = 1; pageNum <=50; pageNum++) {
+  for(let pageNum = 1; pageNum <=5; pageNum++) {
 
     // puppeteerでブラウザを立ち上げる
     const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--dns-prefetch-disable'],});

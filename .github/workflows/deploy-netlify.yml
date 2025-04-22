@@ -3,7 +3,7 @@ name: Deploy to Netlify
 on:
   push:
     branches:
-      - feature/json-file-integration # devブランチに変更があった場合にトリガーされます
+      - master # devブランチに変更があった場合にトリガーされます
 
 jobs:
   deploy:
