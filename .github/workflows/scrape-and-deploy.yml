@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: write  # リポジトリのコンテンツへの書き込み権限を明示的に設定
-  
+
 jobs:
   run-scrape:
     runs-on: ubuntu-latest
@@ -38,3 +38,7 @@ jobs:
           git commit -m "auto: update scraped JSON"
           git push https://github-token:${{ secrets.GITHUB_TOKEN }}@github.com/1379SamD/wantedly-ses-filter.git master
 
+      # Netlifyビルドフックを呼び出してデプロイ
+      - name: Trigger Netlify build using build hook
+        run: |
+          curl -X POST https://api.netlify.com/build_hooks/68067881496a5e5135f96b93

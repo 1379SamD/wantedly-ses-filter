@@ -20,7 +20,7 @@ export const scrapeData = async () => {
         return sesKeywords.some(keyword => text.includes(keyword));
   };
   
-  for(let pageNum = 1; pageNum <=5; pageNum++) {
+  for(let pageNum = 1; pageNum <=50; pageNum++) {
 
     // puppeteerでブラウザを立ち上げる
     const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--dns-prefetch-disable'],});
