@@ -5,6 +5,9 @@ on:
     - cron: '0 5 * * *'  # UTCの5:00 → 日本時間の14:00
   workflow_dispatch:       # 手動実行も可
 
+permissions:
+  contents: write  # リポジトリのコンテンツへの書き込み権限を明示的に設定
+  
 jobs:
   run-scrape:
     runs-on: ubuntu-latest
