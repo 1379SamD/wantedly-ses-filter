@@ -2,7 +2,8 @@ name: Scrape and Save JSON
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # UTCの5:00 → 日本時間の14:00
+    # - cron: '0 18 * * *'  # 毎日18:00 UTC → 日本時間の3:00AM
+    - cron: '30 9 * * *'  # 毎日09:30 UTC → 日本時間18:30
   workflow_dispatch:       # 手動実行も可
 
 permissions:
