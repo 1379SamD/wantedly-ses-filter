@@ -31,4 +31,4 @@ jobs:
       # Netlifyビルドフックを呼び出してデプロイ
       - name: Trigger Netlify build using build hook
         run: |
-          curl -X POST curl -X POST https://api.netlify.com/build_hooks/68067881496a5e5135f96b93
+          curl -X POST https://api.netlify.com/build_hooks/68067881496a5e5135f96b93
