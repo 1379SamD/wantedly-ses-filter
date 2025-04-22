@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Run scraper
-        run: node dist/src/utils/saveScrapedDataToFile.js
+        run: node dist/utils/saveScrapedDataToFile.js
 
       - name: Commit and push updated JSON
         run: |
