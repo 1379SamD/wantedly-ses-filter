@@ -5,3 +5,8 @@ export type CardData = {
   wantedlyUrl: string | null;
   sesFlag?:boolean;
 };
+
+export type Carditem = {
+  lastUpdated: string;
+  data: CardData[];
+};
