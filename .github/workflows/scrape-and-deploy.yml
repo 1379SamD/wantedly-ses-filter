@@ -33,4 +33,5 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add public/scrapeData.json
           git commit -m "auto: update scraped JSON"
-          git push
+          git push https://github-token:${{ secrets.GITHUB_TOKEN }}@github.com/1379SamD/wantedly-ses-filter.git master
+
