@@ -1,10 +1,11 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html", 
-    './src/**/*.{html,js,jsx,ts,tsx}',  // Tailwind によるクラスの使用を検出するファイルのパス
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-};
+}

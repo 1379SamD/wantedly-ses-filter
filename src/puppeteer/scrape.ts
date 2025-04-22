@@ -1,26 +1,37 @@
 import puppeteer from "puppeteer";
-import { saveToMongo } from "../db/saveData.js";
-import { closeDB } from "../db/db.js"
+// import { saveToMongo } from "../db/saveData.js";
+// import { closeDB } from "../db/db.js"
+import pLimit from "p-limit";
+import { CardData } from "../types/card";
 
-const scrapeData = async () => {
+export const scrapeData = async () => {
 
   // 型定義
-  type CardData = {
-    title: string;
-    companyName: string;
-    topImagePic: string;
-    wantedlyUrl: string;
-    sesFlag: boolean;
-  };
+  // type CardData = {
+  //   title: string;
+  //   companyName: string;
+  //   topImagePic: string;
+  //   wantedlyUrl: string | null;
+  //   sesFlag?:boolean;
+  // };
 
   // 全カード情報格納
   const allCardData: CardData[] = [];
   // ses企業ワードを配列に格納
-  const sesKeywords = ["客先常駐", "常駐", "派遣", "開発支援", "SES"];
+  const sesKeywords = ["客先", "常駐", "派遣", "開発支援", "エンジニア支援", "SES", "ses", "配属先", "準委任契約", "クライアント先", "プロジェクト参画", "現場で活躍中！"];
   // NOTses企業ワードを配列に格納
-  const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし"];
+  const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし", "内製化"];
+
+  // ses企業判定処理
+  const isSes = (text: string): boolean => {
+        // 否定ワードが含まれていたらfalse(SESではない)
+        if(notSesKeywords.some(keyword => text.includes(keyword))) {
+          return false;
+        }
+        return sesKeywords.some(keyword => text.includes(keyword));
+  };
   
-  for(let pageNum = 1; pageNum <=5; pageNum++) {
+  for(let pageNum = 1; pageNum <=50; pageNum++) {
 
     // puppeteerでブラウザを立ち上げる
     const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--dns-prefetch-disable'],});
@@ -43,12 +54,6 @@ const scrapeData = async () => {
     const url = `https://www.wantedly.com/projects?new=true&page=${pageNum}&occupationTypes=jp__engineering&jp__engineering=jp__web_engineer&hiringTypes=mid_career&order=recent`;
     await page.goto(url, {waitUntil: "domcontentloaded"});
 
-    // 取得したい要素が表示されるまで待機
-    // await page.waitForSelector("li[class*='ProjectListJobPostsLaptop__ProjectListItem']", {visible: true});
-    
-    // 一秒間待機
-    // await new Promise(resolve => setTimeout(resolve, 5000));
-
     // 必要なデータを抽出
     const pageData = await page.evaluate(() => {
       // １ページの企業情報のliタグを取得
@@ -62,8 +67,9 @@ const scrapeData = async () => {
           const title = item.querySelector("h2[class*='ProjectListJobPostItem__TitleText']")?.textContent || "No title found";
           const companyName = item.querySelector("#company-name")?.textContent || "No company-name found";
           const topImagePic = item.querySelector("section img")?.getAttribute("src") || "No image found";
-          const wantedlyUrl = "https://www.wantedly.com" + (item.querySelector("section a")?.getAttribute("href")?.trim() || "");
-  
+          const href = item.querySelector("section a")?.getAttribute("href")?.trim();
+          const wantedlyUrl = href ? "https://www.wantedly.com" + href : null;
+
           // 取得したデータをオブジェクトにまとめて返す
           return {
             title,
@@ -72,21 +78,34 @@ const scrapeData = async () => {
             wantedlyUrl,
           };
           // 最後にnull以外を取得
-        }).filter(item => item !== null);
-    });
-    
-    // ses企業判定処理
-    const isSes = (text: string): boolean => {
-      // 否定ワードが含まれていたらfalse(SESではない)
-      if(notSesKeywords.some(keyword => text.includes(keyword))) {
-        return false;
-      }
-      return sesKeywords.some(keyword => text.includes(keyword));
-    };
+        }).filter(item => item !== null && item.wantedlyUrl !== null);
+    }) as CardData[];
   
     // 各カードの詳細ページに飛んでSES判定情報を取得
-    for(const card of pageData) {
+    // 並列化するための並列数(10ページ設定)
+    const limit = pLimit(10);
+
+    // 並列処理化する関数
+    const processCard = async (card: CardData) => {
+      // console.log(`開始: ${card.title}`);
       const detailPage = await browser.newPage();
+      
+      // ユーザーエージェント設定
+      await detailPage.setUserAgent(
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' +
+        'AppleWebKit/537.36 (KHTML, like Gecko) ' +
+        'Chrome/122.0.0.0 Safari/537.36'
+      );
+  
+      // ビューポート設定
+      await detailPage.setViewport({
+        width: 1280,
+        height: 800,
+      });
+
+      // 詳細ページにアクセス
+      await detailPage.goto(card.wantedlyUrl!, {waitUntil: "domcontentloaded"});
+
       // SES判定(詳細ページ内での処理)
       const description = await detailPage.evaluate(() => {
         // SES判定に使う要素をすべて取得
@@ -106,16 +125,24 @@ const scrapeData = async () => {
         ...card,
         sesFlag,
       });
+      // console.log(`終了: ${card.title}`);
     }
+    // limitで並列に実行
+    const tasks = pageData.map(card => limit(()=>processCard(card!)));
+    // 全てのprocessCardが終わるのを待ってから閉じる
+    await Promise.all(tasks);
+
     console.log(pageNum);
     await browser.close();
-  }
+  };
+
   console.log(allCardData);
   if(allCardData.length > 0) {
-    await saveToMongo(allCardData);
+    // await saveToMongo(allCardData);
+    const filteredData = allCardData.filter(item => item.sesFlag === false);
+    return filteredData;
   } else {
-    console.warn("データが取得できなかったため、DBの更新は行いませんでした");
+    console.warn("データが取得できなかったため、データの更新は行いませんでした");
   }
-  await closeDB();
 }
-scrapeData();
+// scrapeData();
