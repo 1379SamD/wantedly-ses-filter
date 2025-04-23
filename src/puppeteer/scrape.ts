@@ -1,13 +1,13 @@
 import puppeteer from "puppeteer";
 import pLimit from "p-limit";
-import { CardData } from "../types/card";
+import { CardData, Carditem } from "../types/card";
 
 export const scrapeData = async () => {
 
   // 全カード情報格納
   const allCardData: CardData[] = [];
   // ses企業ワードを配列に格納
-  const sesKeywords = ["客先", "常駐", "派遣", "開発支援", "エンジニア支援", "SES", "ses", "配属先", "準委任契約", "クライアント先", "プロジェクト参画", "現場で活躍中！"];
+  const sesKeywords = ["客先", "常駐", "派遣", "開発支援", "エンジニア支援", "SES", "ses", "配属先", "準委任契約", "クライアント先", "プロジェクト参画", "現場で活躍中！", "プロジェクト先"];
   // NOTses企業ワードを配列に格納
   const notSesKeywords = ["客先常駐なし", "常駐なし", "派遣なし", "SESなし", "内製化"];
 
@@ -106,12 +106,29 @@ export const scrapeData = async () => {
         });
         return text;
       });
-      
+
+      // 会社情報を「自社開発&受託開発」、「自社開発」、「受託開発」、「該当なし」のフラグをそれぞれ格納
+      const cmpanyTypeJudge = (description: any) => {
+        if(["自社", "受託"].every(type => description.includes(type))) {
+          return "inHouse&contracted";
+        } else if(description.includes("自社")) {
+          return "inHouse";
+        } else if(description.includes("受託")) {
+          return "contracted";
+        } else {
+          return "unknown";
+        }
+      }
+
+      // 会社タイプを格納
+      const companyType = cmpanyTypeJudge(description);
+
       // SES判定処理でtrue, falseかを判定
       const sesFlag = isSes(description);
       // ses判定結果をcardに追加
       allCardData.push({
         ...card,
+        companyType,
         sesFlag,
       });
       // console.log(`終了: ${card.title}`);
