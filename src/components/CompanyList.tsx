@@ -47,42 +47,46 @@ export const CompanyList = () => {
           {/* 更新日を表示 */}
           <div className="absolute top-1 left-1 sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full p-2 shadow-none border-none text-[8px] sm:text-xs md:text-base lg:text-base">
             更新日:{dataFormat(viewCompanies?.lastUpdated || "")}
-        </div>
-
-        </div>
-        <div className="flex justify-center items-end mb-4 w-full text-[8px] sm:text-base md:text-base lg:text-base">
-          {/* 表示切り替えボタン */}
-          <div className="flex gap-2 block p-2 rounded border">
-            <button
-              onClick={() => setView("card")}
-              className={`inline-block px-2 py-1 rounded box-border ${
-                view === "card" ? "bg-blue-500 text-white" : "bg-gray-200"
-              } sm: px-4 py-2`}
-            >
-              カード
-            </button>
-            <button
-              onClick={() => setView("list")}
-              className={`inline-block px-2 py-1 rounded box-border ${
-                view === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
-              } sm: px-4 py-2`}
-            >
-              リスト
-            </button>
           </div>
+        </div>
+        <div className="flex flex-wrap justify-center items-end gap-2 mb-4 w-full text-[8px] sm:text-base md:text-base lg:text-base">
+          {/* 表示切り替えボタン */}
+          <div className="flex gap-2 p-2 rounded border">
+          <button
+            onClick={() => setView("card")}
+            className={`inline-block whitespace-nowrap px-2 py-1 rounded box-border ${
+              view === "card" ? "bg-blue-500 text-white" : "bg-gray-200"
+            } sm:px-4 sm:py-2`}
+          >
+            カード
+          </button>
+          <button
+            onClick={() => setView("list")}
+            className={`inline-block whitespace-nowrap px-2 py-1 rounded box-border ${
+              view === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
+            } sm:px-4 sm:py-2`}
+          >
+            リスト
+          </button>
+          </div>
+
           {/* 会社タイプ切り替えボタン */}
-          <div className="flex gap-2 block p-2 rounded border ml-4">
+          <div className="flex flex-wrap gap-2 p-2 rounded border ml-4">
             {companyType.map((type) => (
-              <button className={`inline-block px-2 py-1 rounded box-border ${companyTypeView === type ? "bg-blue-500 text-white" : "bg-gray-200"} sm: px-4 py-2`}
-              onClick={() => {
-                companyTypeFilter(type);
-                setCompanyTypeView(type);
-              }}
-            >
-              {type}
-            </button>
+              <button
+                key={type}
+                className={`inline-block whitespace-nowrap px-2 py-1 rounded box-border ${
+                  companyTypeView === type ? "bg-blue-500 text-white" : "bg-gray-200"
+                } sm:px-4 sm:py-2`}
+                onClick={() => {
+                  companyTypeFilter(type);
+                  setCompanyTypeView(type);
+                }}
+              >
+                {type}
+              </button>
             ))}
-            </div>
+          </div>
         </div>
       </header>
 
