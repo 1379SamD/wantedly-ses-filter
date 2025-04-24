@@ -125,7 +125,7 @@ export const CompanyList = () => {
           <div className="gap-4 p-4 pt-[122px] sm:pt-[166px] md:pt-[174px]">
             {viewCompanies?.data.map((company, idx) => (
               <a href={company.wantedlyUrl!} target="_blank" rel="noopener noreferrer" className="">
-                <div key={idx} className="flex items-center border rounded-xl shadow-md px-2 mb-2 block hover:bg-gray-200 transition">
+                <div key={idx} className="flex items-center border rounded-xl shadow-md px-2 sm:py-2 mb-2 block hover:bg-gray-200 transition">
                   <img src={company.topImagePic} alt={company.title} className="rounded-md w-14 h-14 object-cover sm:w-16 sm:h-16"/>
                   <div className="p-1 pl-3 justify-center">
                     <p className="text-xs sm:text-gray-600">{company.companyName}</p>
