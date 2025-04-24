@@ -43,18 +43,18 @@ export const CompanyList = () => {
     <div className="text-base sm:text-base md:text-base lg:text-base">
       <header className="fixed top-0 w-full bg-white shadow z-50">
         <div className="relative">
-          <h1 className="font-bold text-center py-6 sm:text-xl md:text-3xl">自社開発企業 一覧</h1>
+          <h1 className="font-bold text-center py-3 sm:py-6 sm:text-xl md:text-3xl">自社開発企業 一覧</h1>
           {/* 更新日を表示 */}
-          <div className="absolute top-1 left-1 sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full p-2 shadow-none border-none text-[8px] sm:text-xs md:text-base lg:text-base">
+          <div className="absolute top-1 left-1 p-1 leading-none sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full sm:p-3 shadow-none border-none text-[9px] sm:text-xs md:text-base lg:text-base">
             更新日:{dataFormat(viewCompanies?.lastUpdated || "")}
           </div>
         </div>
-        <div className="flex flex-wrap justify-center items-end gap-2 mb-4 w-full text-[8px] sm:text-base md:text-base lg:text-base">
+        <div className="flex flex-wrap justify-center items-end gap-2 mb-4 w-full text-[8px] leading-none sm:text-sm md:text-base lg:text-base">
           {/* 表示切り替えボタン */}
           <div className="flex gap-2 p-2 rounded border">
           <button
             onClick={() => setView("card")}
-            className={`inline-block whitespace-nowrap px-2 py-1 rounded box-border ${
+            className={`inline-block whitespace-nowrap px-2 py-2 rounded box-border ${
               view === "card" ? "bg-blue-500 text-white" : "bg-gray-200"
             } sm:px-4 sm:py-2`}
           >
@@ -62,20 +62,19 @@ export const CompanyList = () => {
           </button>
           <button
             onClick={() => setView("list")}
-            className={`inline-block whitespace-nowrap px-2 py-1 rounded box-border ${
+            className={`inline-block whitespace-nowrap px-2 py-2 rounded box-border ${
               view === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
             } sm:px-4 sm:py-2`}
           >
             リスト
           </button>
           </div>
-
           {/* 会社タイプ切り替えボタン */}
-          <div className="flex flex-wrap gap-2 p-2 rounded border ml-4">
+          <div className="flex flex-wrap gap-2 p-2 rounded border ml-0 sm:ml-4">
             {companyType.map((type) => (
               <button
                 key={type}
-                className={`inline-block whitespace-nowrap px-2 py-1 rounded box-border ${
+                className={`inline-block whitespace-nowrap px-2 py-2 rounded box-border ${
                   companyTypeView === type ? "bg-blue-500 text-white" : "bg-gray-200"
                 } sm:px-4 sm:py-2`}
                 onClick={() => {
@@ -92,7 +91,7 @@ export const CompanyList = () => {
 
       {/* カード形式に表示 */}
       {view === "card" ? (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4" style={{ paddingTop: "174px" }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 pt-[122px] sm:pt-[166px] md:pt-[174px]">
         {viewCompanies?.data.map((company, idx) => (
           <div key={idx} className="border rounded-xl shadow-md p-4 hover:bg-gray-200 transition">
             <img src={company.topImagePic} alt={company.title} className="rounded-md w-full h-48 object-cover mb-2" />
@@ -116,7 +115,7 @@ export const CompanyList = () => {
       ) : (
         // リスト形式に表示
         <>
-          <div className="gap-4 p-4" style={{ paddingTop: "174px" }}>
+          <div className="gap-4 p-4 pt-[122px] sm:pt-[166px] md:pt-[174px]">
             {viewCompanies?.data.map((company, idx) => (
               <a href={company.wantedlyUrl!} target="_blank" rel="noopener noreferrer" className="">
                 <div key={idx} className="flex items-center border rounded-xl shadow-md p-2 mb-2 block hover:bg-gray-200 transition">
