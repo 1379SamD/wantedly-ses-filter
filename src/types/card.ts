@@ -3,7 +3,7 @@ export type CardData = {
   companyName: string;
   topImagePic: string;
   wantedlyUrl: string | null;
-  companyType: "inHouse&contracted" | "inHouse" | "contracted" | "unknown";
+  companyType: "自社/受託" | "自社" | "受託" | "該当なし";
   sesFlag?:boolean;
 };
 

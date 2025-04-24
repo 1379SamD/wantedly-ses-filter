@@ -110,13 +110,13 @@ export const scrapeData = async () => {
       // 会社情報を「自社開発&受託開発」、「自社開発」、「受託開発」、「該当なし」のフラグをそれぞれ格納
       const cmpanyTypeJudge = (description: any) => {
         if(["自社", "受託"].every(type => description.includes(type))) {
-          return "inHouse&contracted";
+          return "自社/受託";
         } else if(description.includes("自社")) {
-          return "inHouse";
+          return "自社";
         } else if(description.includes("受託")) {
-          return "contracted";
+          return "受託";
         } else {
-          return "unknown";
+          return "該当なし";
         }
       }
 
