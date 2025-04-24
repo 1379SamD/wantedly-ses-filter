@@ -8,11 +8,9 @@ export const CompanyList = () => {
   const [companies, setCompanies] = useState<Carditem>();
   const [viewCompanies, setViewCompanies] = useState<Carditem>();
   const [view, setView] = useState("card");
-  const [companyTypeView, setCompanyTypeView] = useState("all");
-  const companyType = [["inHouse&contracted", "自社/受託"], ["inHouse", "自社"], ["contracted", "受託"], ["unknown", "該当なし"]];
+  const [companyTypeView, setCompanyTypeView] = useState("全て");
+  const companyType = ["全て", "自社/受託", "自社", "受託", "該当なし"];
   
-
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/scrapeData.json");
@@ -30,7 +28,9 @@ export const CompanyList = () => {
   
   const companyTypeFilter = (companyType: string) => {
     if (!companies) return [];
-    // if (companyType === "all") return companies;
+    if (companyType == "全て") {
+      return setViewCompanies(companies)
+    };
     
     const filteredData = companies.data.filter(item => item.companyType === companyType);
     return setViewCompanies({
@@ -40,41 +40,47 @@ export const CompanyList = () => {
   };
   
   return (
-    <>
+    <div className="text-base sm:text-base md:text-base lg:text-base">
       <header className="fixed top-0 w-full bg-white shadow z-50">
-        <h1 className="text-3xl font-bold text-center py-6">自社開発企業 一覧</h1>
-        <div className="flex items-end mb-4">
+        <div className="relative">
+          <h1 className="font-bold text-center py-6 sm:text-xl md:text-3xl">自社開発企業 一覧</h1>
           {/* 更新日を表示 */}
-          <div className="block p-4 mx-4 rounded border bg-yellow-100">更新日:{dataFormat(viewCompanies?.lastUpdated || "")}</div>
+          <div className="absolute top-1 left-1 sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full p-2 shadow-none border-none text-[8px] sm:text-xs md:text-base lg:text-base">
+            更新日:{dataFormat(viewCompanies?.lastUpdated || "")}
+        </div>
+
+        </div>
+        <div className="flex justify-center items-end mb-4 w-full text-[8px] sm:text-base md:text-base lg:text-base">
           {/* 表示切り替えボタン */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 block p-2 rounded border">
             <button
               onClick={() => setView("card")}
-              className={`px-4 py-2 rounded ${
+              className={`inline-block px-2 py-1 rounded box-border ${
                 view === "card" ? "bg-blue-500 text-white" : "bg-gray-200"
-              }`}
+              } sm: px-4 py-2`}
             >
-              カード表示
+              カード
             </button>
             <button
               onClick={() => setView("list")}
-              className={`px-4 py-2 rounded ${
+              className={`inline-block px-2 py-1 rounded box-border ${
                 view === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
-              }`}
+              } sm: px-4 py-2`}
             >
-              リスト表示
+              リスト
             </button>
           </div>
           {/* 会社タイプ切り替えボタン */}
-          <div className="flex gap-2 ml-4  px-4 py-2 bg-gray-200 rounded">
+          <div className="flex gap-2 block p-2 rounded border ml-4">
             {companyType.map((type) => (
-              <button className={`block rounded ${companyTypeView == "inHouse"} ? "bg-blue-500 text-white" : bg-gray-200`}
-                onClick={() => {
-                  companyTypeFilter(type[0]);
-                  setCompanyTypeView(type[1]);
-                }
-              }
-              >{type[1]}</button>
+              <button className={`inline-block px-2 py-1 rounded box-border ${companyTypeView === type ? "bg-blue-500 text-white" : "bg-gray-200"} sm: px-4 py-2`}
+              onClick={() => {
+                companyTypeFilter(type);
+                setCompanyTypeView(type);
+              }}
+            >
+              {type}
+            </button>
             ))}
             </div>
         </div>
@@ -86,12 +92,12 @@ export const CompanyList = () => {
         {viewCompanies?.data.map((company, idx) => (
           <div key={idx} className="border rounded-xl shadow-md p-4 hover:bg-gray-200 transition">
             <img src={company.topImagePic} alt={company.title} className="rounded-md w-full h-48 object-cover mb-2" />
-            <h2 className="text-xl font-bold">{company.title}</h2>
-            <p className="text-gray-600">{company.companyName}</p>
-            <p className={`mt-1 font-semibold ${company.sesFlag ? 'text-red-500' : 'text-green-600'}`}>
+            <h2 className="font-bold">{company.title}</h2>
+            <p className="text-gray-600 pt-2">{company.companyName}</p>
+            {/* <p className={`mt-1 font-semibold ${company.sesFlag ? 'text-red-500' : 'text-green-600'}`}>
               {company.sesFlag ? "SESっぽい" : "自社開発っぽい"}
-            </p>
-            <p className="">{company.companyType}</p>
+            </p> */}
+            <p className="block p-2">{company.companyType}</p>
             <a
               href={company.wantedlyUrl!}
               target="_blank"
@@ -109,7 +115,7 @@ export const CompanyList = () => {
           <div className="gap-4 p-4" style={{ paddingTop: "174px" }}>
             {viewCompanies?.data.map((company, idx) => (
               <a href={company.wantedlyUrl!} target="_blank" rel="noopener noreferrer" className="">
-                <div key={idx} className="flex items-start border rounded-xl shadow-md p-4 mb-2 block hover:bg-gray-200 transition">
+                <div key={idx} className="flex items-center border rounded-xl shadow-md p-2 mb-2 block hover:bg-gray-200 transition">
                   <img src={company.topImagePic} alt={company.title} className="rounded-md w-16 h-16 object-cover"/>
                   <div className="p-2 pt-0">
                     <p className="text-gray-600">{company.companyName}</p>
@@ -123,7 +129,7 @@ export const CompanyList = () => {
         </>
 
       )}
-    </>
+    </div>
   );
 };
 
