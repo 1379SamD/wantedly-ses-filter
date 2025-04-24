@@ -43,7 +43,7 @@ export const CompanyList = () => {
     <div className="text-base sm:text-base md:text-base lg:text-base">
       <header className="fixed top-0 w-full bg-white shadow z-50">
         <div className="relative">
-          <h1 className="font-bold text-center py-3 sm:py-6 sm:text-xl md:text-3xl">自社開発企業 一覧</h1>
+          <h1 className="font-bold text-center py-3 sm:py-6 sm:text-xl md:text-3xl font-sans">Filterly</h1>
           {/* 更新日を表示 */}
           <div className="absolute top-1 left-1 p-1 leading-none sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full sm:p-3 shadow-none border-none text-[9px] sm:text-xs md:text-base lg:text-base">
             更新日:{dataFormat(viewCompanies?.lastUpdated || "")}
@@ -96,11 +96,18 @@ export const CompanyList = () => {
           <div key={idx} className="border rounded-xl shadow-md p-4 hover:bg-gray-200 transition">
             <img src={company.topImagePic} alt={company.title} className="rounded-md w-full h-48 object-cover mb-2" />
             <h2 className="font-bold">{company.title}</h2>
-            <p className="text-gray-600 pt-2">{company.companyName}</p>
+            <p className="text-gray-600">{company.companyName}</p>
             {/* <p className={`mt-1 font-semibold ${company.sesFlag ? 'text-red-500' : 'text-green-600'}`}>
               {company.sesFlag ? "SESっぽい" : "自社開発っぽい"}
             </p> */}
-            <p className="block p-2">{company.companyType}</p>
+            <p className={`block w-fit px-2 py-1 text-xs rounded mt-1
+              ${company.companyType === "自社" ? 'bg-sky-500 text-white' :
+                company.companyType === "受託" ? 'bg-yellow-500 text-white' :
+                company.companyType === "自社/受託" ? 'bg-green-500 text-white' :
+                company.companyType === "該当なし" ? 'bg-gray-500 text-white' :
+                'bg-gray-200 text-gray-800'
+              }
+            `}>{company.companyType}</p>
             <a
               href={company.wantedlyUrl!}
               target="_blank"
@@ -118,12 +125,19 @@ export const CompanyList = () => {
           <div className="gap-4 p-4 pt-[122px] sm:pt-[166px] md:pt-[174px]">
             {viewCompanies?.data.map((company, idx) => (
               <a href={company.wantedlyUrl!} target="_blank" rel="noopener noreferrer" className="">
-                <div key={idx} className="flex items-center border rounded-xl shadow-md p-2 mb-2 block hover:bg-gray-200 transition">
-                  <img src={company.topImagePic} alt={company.title} className="rounded-md w-16 h-16 object-cover"/>
-                  <div className="p-2 pt-0">
-                    <p className="text-gray-600">{company.companyName}</p>
-                    <p className="ext-gray-600">{company.title}</p>
-                    <p className="">{company.companyType}</p>
+                <div key={idx} className="flex items-center border rounded-xl shadow-md px-2 mb-2 block hover:bg-gray-200 transition">
+                  <img src={company.topImagePic} alt={company.title} className="rounded-md w-14 h-14 object-cover sm:w-16 sm:h-16"/>
+                  <div className="p-1 pl-3 justify-center">
+                    <p className="text-xs sm:text-gray-600">{company.companyName}</p>
+                    <p className="text-xs sm:text-gray-600">{company.title}</p>
+                    <p className={`block w-fit px-2 py-1 text-xs rounded mt-1
+                      ${company.companyType === "自社" ? 'bg-sky-500 text-white' :
+                        company.companyType === "受託" ? 'bg-yellow-500 text-white' :
+                        company.companyType === "自社/受託" ? 'bg-green-500 text-white' :
+                        company.companyType === "該当なし" ? 'bg-gray-500 text-white' :
+                        'bg-gray-200 text-gray-800'
+                      }
+            `}>{company.companyType}</p>
                   </div>
                 </div>
               </a>
