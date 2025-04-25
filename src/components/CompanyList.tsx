@@ -51,7 +51,7 @@ export const CompanyList = () => {
             <p className="text-[10px] leading-normal mb-1 md:text-sm">Wantedlyから自社・受託企業をスマートに探せるWebツール</p>
           </div>
           {/* 更新日を表示 */}
-          <div className="absolute top-1 left-1 p-1 leading-none sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full sm:p-3 shadow-none border-none text-[9px] sm:text-xs md:text-base lg:text-base">
+          <div className="absolute top-1 left-1 p-1 leading-none sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full sm:p-3 shadow-none border-none text-[9px] sm:text-xs">
             更新日:{dataFormat(viewCompanies?.lastUpdated || "")}
           </div>
           <div className="items-center space-x-2 absolute top-2 right-2 sm:top-4 sm:right-4">
@@ -65,17 +65,17 @@ export const CompanyList = () => {
             <div className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
               <h2 className="text-lg font-bold mb-1">このアプリについて</h2>
               <p className="text-sm text-gray-600 mb-2">
-                Wantedlyから自社・受託企業を効率的に探せるフィルターツールです。
+                Wantedlyから自社・受託企業を効率的に探せるフィルターツールです。夜間にデータ更新しています。
               </p>
               <h3 className="text-sm font-bold mb-1">フィルター機能について</h3>
               <p className="text-sm text-gray-600 mb-2">
                 除外キーワード：<br/>
-              「客先」「常駐」「派遣」「開発支援」「エンジニア支援」「SES」「ses」「配属先」「準委任契約」「クライアント先」「プロジェクト参画」「現場で活躍中！」「プロジェクト先」
+              「客先」「常駐」「派遣」「開発支援」「エンジニア支援」「SES」「ses」「配属先」「準委任契約」「クライアント先」「プロジェクト参画」「現場で活躍中」「プロジェクト先」「現場配属」
               </p>
               <h3 className="text-sm font-bold mb-1">タグ機能について</h3>
               <p className="text-sm text-gray-600 mb-5">
                 「全て」「自社/受託」「自社」「受託」「該当なし」でフィルター可能。<br />
-                ※該当なしについては上記のワードがヒットなし。
+                ※該当なしについては上記のワードでヒットなし。
               </p>
               <div className="flex items-center p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-lg">
                 <HiOutlineExclamation className="w-8 h-8 mr-2" />
