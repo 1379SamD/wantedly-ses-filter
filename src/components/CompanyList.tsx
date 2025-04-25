@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import { Carditem, CompanyType, CardData } from "../types/card";
 import {dataFormat} from "../utils/dataFormat.js";
+import { InformationCircleIcon } from '@heroicons/react/24/outline';
+import { HiOutlineExclamation } from 'react-icons/hi'; // Heroiconsの警告アイコン
 
 export const CompanyList = () => {
   const [companies, setCompanies] = useState<Carditem>();
@@ -10,6 +12,7 @@ export const CompanyList = () => {
   const [view, setView] = useState("card");
   const [companyTypeView, setCompanyTypeView] = useState("全て");
   const companyType = ["全て", "自社/受託", "自社", "受託", "該当なし"];
+  const [open, setOpen] = useState(false);
   
   useEffect(() => {
     const fetchData = async () => {
@@ -43,13 +46,52 @@ export const CompanyList = () => {
     <div className="text-base sm:text-base md:text-base lg:text-base">
       <header className="fixed top-0 w-full bg-white shadow z-50">
         <div className="relative">
-          <h1 className="font-bold text-center py-3 sm:py-6 sm:text-xl md:text-3xl font-sans">Filterly</h1>
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="font-bold text-center pt-3 sm:pt-6 text-xl md:text-3xl font-sans">Filterly</h1>
+            <p className="text-[10px] leading-normal mb-1 md:text-sm">Wantedlyから自社・受託企業をスマートに探せるWebツール</p>
+          </div>
           {/* 更新日を表示 */}
           <div className="absolute top-1 left-1 p-1 leading-none sm:top-4 sm:left-4 sm:block sm:border sm:border-gray-300 sm:shadow-md sm:rounded-l-full sm:rounded-r-full sm:p-3 shadow-none border-none text-[9px] sm:text-xs md:text-base lg:text-base">
             更新日:{dataFormat(viewCompanies?.lastUpdated || "")}
           </div>
+          <div className="items-center space-x-2 absolute top-2 right-2 sm:top-4 sm:right-4">
+            <button onClick={() => setOpen(true)}>
+              <InformationCircleIcon className="h-6 w-6 sm:w-8 sm:h-8 text-blue-500"/>
+            </button>
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center items-end gap-2 mb-4 w-full text-[8px] leading-none sm:text-sm md:text-base lg:text-base">
+        {open && (
+          <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
+              <h2 className="text-lg font-bold mb-1">このアプリについて</h2>
+              <p className="text-sm text-gray-600 mb-2">
+                Wantedlyから自社・受託企業を効率的に探せるフィルターツールです。
+              </p>
+              <h3 className="text-sm font-bold mb-1">フィルター機能について</h3>
+              <p className="text-sm text-gray-600 mb-2">
+                除外キーワード：<br/>
+              「客先」「常駐」「派遣」「開発支援」「エンジニア支援」「SES」「ses」「配属先」「準委任契約」「クライアント先」「プロジェクト参画」「現場で活躍中！」「プロジェクト先」
+              </p>
+              <h3 className="text-sm font-bold mb-1">タグ機能について</h3>
+              <p className="text-sm text-gray-600 mb-5">
+                「全て」「自社/受託」「自社」「受託」「該当なし」でフィルター可能。<br />
+                ※該当なしについては上記のワードがヒットなし。
+              </p>
+              <div className="flex items-center p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-lg">
+                <HiOutlineExclamation className="w-8 h-8 mr-2" />
+                <span className="text-sm">キーワードで除外していますが、正しいかどうかは自分で最終確認してください。</span>
+              </div>
+              
+              <button
+                onClick={() => setOpen(false)}
+                className="mt-5 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              >
+                閉じる
+              </button>
+            </div>
+          </div>
+        )}
+        <div className="flex flex-wrap justify-center items-end gap-2 mb-2 sm:mb-4 sm:mt-3 w-full text-[8px] leading-none sm:text-sm md:text-base lg:text-base">
           {/* 表示切り替えボタン */}
           <div className="flex gap-2 p-2 rounded border">
           <button
@@ -91,7 +133,7 @@ export const CompanyList = () => {
 
       {/* カード形式に表示 */}
       {view === "card" ? (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 pt-[122px] sm:pt-[166px] md:pt-[174px]">
+      <div className="grid grid-cols-1 gap-y-2 sm:gap-y-4 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 sm:p-4 pt-[117px] sm:pt-[169px] md:pt-[186px]">
         {viewCompanies?.data.map((company, idx) => (
           <div key={idx} className="border rounded-xl shadow-md p-4 hover:bg-gray-200 transition">
             <img src={company.topImagePic} alt={company.title} className="rounded-md w-full h-48 object-cover mb-2" />
@@ -122,10 +164,10 @@ export const CompanyList = () => {
       ) : (
         // リスト形式に表示
         <>
-          <div className="gap-4 p-4 pt-[122px] sm:pt-[166px] md:pt-[174px]">
+          <div className="gap-4 p-2 sm:p-4 pt-[117px] sm:pt-[169px] md:pt-[186px]">
             {viewCompanies?.data.map((company, idx) => (
               <a href={company.wantedlyUrl!} target="_blank" rel="noopener noreferrer" className="">
-                <div key={idx} className="flex items-center border rounded-xl shadow-md px-2 sm:py-2 mb-2 block hover:bg-gray-200 transition">
+                <div key={idx} className="flex items-center border rounded-xl shadow-md px-2 sm:py-2 sm:mb-4 mb-2 block hover:bg-gray-200 transition">
                   <img src={company.topImagePic} alt={company.title} className="rounded-md w-14 h-14 object-cover sm:w-16 sm:h-16"/>
                   <div className="p-1 pl-3 justify-center">
                     <p className="text-xs sm:text-gray-600">{company.companyName}</p>
