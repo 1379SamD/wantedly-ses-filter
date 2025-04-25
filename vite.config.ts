@@ -23,4 +23,9 @@ export default defineConfig({
       'vite-plugin-node-polyfills/shims/process',
     ],
   },
+  build: {
+    rollupOptions: {
+      external: ['@heroicons/react'],
+    },
+  },
 })
