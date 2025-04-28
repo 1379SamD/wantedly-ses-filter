@@ -1,4 +1,10 @@
 ■Filterly(SESフィルターアプリ)
+・デスクトップイメージ
+![image](https://github.com/user-attachments/assets/02c7c1f9-1e8f-4523-8f7f-2d37b0544bb2)
+
+・スマホイメージ
+![image](https://github.com/user-attachments/assets/0e5b7975-cdec-4fad-8ced-0d0b52d712e0)
+
 
 ♦概要
 このアプリは、Wantedlyから自社・受託企業をスマートに探せるWebツールです
@@ -21,6 +27,7 @@
 
 ♦使用技術
 フロントエンド: React, Tailwind CSS
+バックエンド： Node.js(puppeteer)
 
 データ管理: JSONファイル（定期バッチ処理で更新）
 
