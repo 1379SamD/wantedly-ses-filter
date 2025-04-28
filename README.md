@@ -3,12 +3,12 @@
 
 カード形式：
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/02c7c1f9-1e8f-4523-8f7f-2d37b0544bb2" width="600" style="border: 5px solid balck"/>
+  <img src="https://github.com/user-attachments/assets/02c7c1f9-1e8f-4523-8f7f-2d37b0544bb2" width="600" style="border: 5px solid black"/>
 </p>
 
 リスト形式：
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/ec5a0b21-4730-4d37-aa78-179cb86b8183" width="600" style="border: 5px solid balck"/>
+  <img src="https://github.com/user-attachments/assets/ec5a0b21-4730-4d37-aa78-179cb86b8183" width="600" style="border: 5px solid black"/>
 </p>
 
 ・スマホイメージ
