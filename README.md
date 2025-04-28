@@ -1,10 +1,10 @@
 ■Filterly(SESフィルターアプリ)
 
-・デプロイ先
+♦デプロイ先
 
 https://wantedlysesfilter.netlify.app/
 
-・デスクトップイメージ
+♦デスクトップイメージ
 
 カード形式：
 <p align="center">
@@ -16,7 +16,7 @@ https://wantedlysesfilter.netlify.app/
   <img src="https://github.com/user-attachments/assets/ec5a0b21-4730-4d37-aa78-179cb86b8183" width="600" style="border: 5px solid black"/>
 </p>
 
-・スマホイメージ
+♦スマホイメージ
 
 カード形式：
 <p align="center">
