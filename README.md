@@ -3,6 +3,7 @@
 
 カード形式：
 ![image](https://github.com/user-attachments/assets/02c7c1f9-1e8f-4523-8f7f-2d37b0544bb2)
+
 リスト形式：
 ![image](https://github.com/user-attachments/assets/ec5a0b21-4730-4d37-aa78-179cb86b8183)
 
@@ -10,6 +11,7 @@
 
 カード形式：
 ![image](https://github.com/user-attachments/assets/0e5b7975-cdec-4fad-8ced-0d0b52d712e0)
+
 リスト形式：
 ![image](https://github.com/user-attachments/assets/4964ef2d-7e37-4666-a49e-1cd695e7c37f)
 
