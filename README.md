@@ -1,7 +1,8 @@
 ■Filterly(SESフィルターアプリ)
 
 
-♦デプロイ先
+♦デプロイ先:
+
 https://wantedlysesfilter.netlify.app/
 
 
