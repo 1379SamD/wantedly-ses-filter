@@ -69,12 +69,15 @@ CI/CD: GitHub Actions, Netlify
 ♦インストール方法
 
 ・このリポジトリをクローンします。
+
 git clone https://github.com/1379SamD/wantedly-ses-filter.git
 
 ・必要な依存関係をインストールします。
+
 cd wantedly-ses-filter
 
 npm install
 
 ・開発サーバーを起動します。
+
 npm run dev
