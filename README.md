@@ -58,6 +58,7 @@ https://wantedlysesfilter.netlify.app/
 ♦使用技術
 
 フロントエンド: React, Tailwind CSS
+
 バックエンド： Node.js(puppeteer)
 
 データ管理: JSONファイル（定期バッチ処理で更新）
@@ -72,6 +73,7 @@ git clone https://github.com/1379SamD/wantedly-ses-filter.git
 
 ・必要な依存関係をインストールします。
 cd wantedly-ses-filter
+
 npm install
 
 ・開発サーバーを起動します。
