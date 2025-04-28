@@ -1,8 +1,9 @@
 ■Filterly(SESフィルターアプリ)
 
-♦デプロイ先
 
+♦デプロイ先
 https://wantedlysesfilter.netlify.app/
+
 
 ♦デスクトップイメージ
 
@@ -28,9 +29,11 @@ https://wantedlysesfilter.netlify.app/
   <img src="https://github.com/user-attachments/assets/4964ef2d-7e37-4666-a49e-1cd695e7c37f"　style="border: 5px solid black"/>
 </p>
 
+
 ♦概要
 
 このアプリは、Wantedlyから自社・受託企業をスマートに探せるWebツールです
+
 
 ♦機能
 
@@ -38,6 +41,7 @@ https://wantedlysesfilter.netlify.app/
 ・カスタマイズ可能なフィルタ条件
 ・ユーザーインターフェースはReactとTailwind CSSを使用してレスポンシブ対応
 ・ユーザーにわかりやすいインタラクション
+
 
 ♦開発の経緯
 
@@ -50,6 +54,7 @@ https://wantedlysesfilter.netlify.app/
 3. JSONファイルによるデータ管理と定期バッチ処理
 最終的に、データベースを使用せず、JSONファイルでデータを管理する方法に変更しました。データは定期的なバッチ処理で外部ソース(Wantedly)から取得し、JSONファイルに上書き保存されます。フロントエンドでは、fetch APIを使用してこのJSONファイルからデータを取得し、表示しています。この方法により、サーバレスで簡単にデータ管理ができ、運用コストを削減できました。
 
+
 ♦使用技術
 
 フロントエンド: React, Tailwind CSS
@@ -58,6 +63,7 @@ https://wantedlysesfilter.netlify.app/
 データ管理: JSONファイル（定期バッチ処理で更新）
 
 CI/CD: GitHub Actions, Netlify
+
 
 ♦インストール方法
 
