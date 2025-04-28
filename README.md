@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+(Filterly)SESフィルターアプリ
+概要
+このアプリは、Wantedlyから自社・受託企業をスマートに探せるWebツールです
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+機能
+SES以外の求人情報のフィルタリング
 
-Currently, two official plugins are available:
+カスタマイズ可能なフィルタ条件
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ユーザーインターフェースはReactとTailwind CSSを使用してレスポンシブ対応
 
-## Expanding the ESLint configuration
+ユーザーにわかりやすいインタラクション
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+開発の経緯
+1. 初期開発（MongoDBローカル）
+最初はローカル環境でMongoDBを使用して開発を行いました。データベースのセットアップやクエリのテストが簡単に行え、素早く動作確認ができるため、この方法を選択しました。
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. MongoDB Atlasの導入
+次に、クラウドで管理できるMongoDB Atlasに移行しました。クラウド環境でのデータ管理やスケーラビリティが向上しましたが、コストが予算に影響を与える可能性があることがわかり、さらに低コストで運用できる方法を検討しました。
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. JSONファイルによるデータ管理と定期バッチ処理
+最終的に、データベースを使用せず、JSONファイルでデータを管理する方法に変更しました。データは定期的なバッチ処理で外部ソース(Wantedly)から取得し、JSONファイルに上書き保存されます。フロントエンドでは、fetch APIを使用してこのJSONファイルからデータを取得し、表示しています。この方法により、サーバレスで簡単にデータ管理ができ、運用コストを削減できました。
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+使用技術
+フロントエンド: React, Tailwind CSS
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+データ管理: JSONファイル（定期バッチ処理で更新）
+
+CI/CD: GitHub Actions, Netlify
+
+インストール方法
+このリポジトリをクローンします。
+
+bash
+コピーする
+編集する
+git clone https://github.com/1379SamD/wantedly-ses-filter.git
+必要な依存関係をインストールします。
+
+bash
+コピーする
+編集する
+cd wantedly-ses-filter
+npm install
+開発サーバーを起動します。
+
+bash
+コピーする
+編集する
+npm run dev
