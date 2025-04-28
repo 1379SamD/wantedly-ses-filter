@@ -15,12 +15,12 @@
 
 カード形式：
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0e5b7975-cdec-4fad-8ced-0d0b52d712e0" width="600" style="border: 5px solid black"/>
+  <img src="https://github.com/user-attachments/assets/0e5b7975-cdec-4fad-8ced-0d0b52d712e0" style="border: 5px solid black"/>
 </p>
 
 リスト形式：
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4964ef2d-7e37-4666-a49e-1cd695e7c37f" width="600" style="border: 5px solid black"/>
+  <img src="https://github.com/user-attachments/assets/4964ef2d-7e37-4666-a49e-1cd695e7c37f"　style="border: 5px solid black"/>
 </p>
 
 ♦概要
