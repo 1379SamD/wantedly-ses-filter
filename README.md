@@ -7,7 +7,9 @@
 </p>
 
 リスト形式：
-![image](https://github.com/user-attachments/assets/ec5a0b21-4730-4d37-aa78-179cb86b8183)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ec5a0b21-4730-4d37-aa78-179cb86b8183" width="600" style="border: 5px solid #000000"/>
+</p>
 
 ・スマホイメージ
 
