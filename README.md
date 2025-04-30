@@ -47,8 +47,11 @@ https://wantedlysesfilter.netlify.app/
 ♦機能
 
 ・SES以外の求人情報のフィルタリング
+
 ・カスタマイズ可能なフィルタ条件
+
 ・ユーザーインターフェースはReactとTailwind CSSを使用してレスポンシブ対応
+
 ・ユーザーにわかりやすいインタラクション
 
 
