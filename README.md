@@ -83,7 +83,7 @@ CI/CD: GitHub Actions, Netlify
 
 ♦インストール方法
 
-・このリポジトリをクローンします。
+・下記リポジトリをクローンします。
 
 git clone https://github.com/1379SamD/wantedly-ses-filter.git
 
