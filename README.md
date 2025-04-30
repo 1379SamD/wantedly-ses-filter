@@ -36,6 +36,8 @@ https://wantedlysesfilter.netlify.app/
 
 データ取得詳細：
 
+・取得日：夜間
+
 ・件数：新着から500件
 
 ・分野：Webエンジニア
