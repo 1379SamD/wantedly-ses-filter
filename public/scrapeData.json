@@ -1,12 +1,196 @@
 {
-  "lastUpdated": "2026-02-03T17:56:37.272Z",
+  "lastUpdated": "2026-02-04T17:52:56.321Z",
   "data": [
     {
-      "title": "遊び心から生まれるプロダクトを形にするWebエンジニアさん募集！",
+      "title": "仮説を持ちカタチにする。自社プロダクト開発！スピード感ある成長環境",
       "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/ZUmhp11?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333703",
+      "topImagePic": "https://images.wantedly.com/i/4xcnif8?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2327471",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "言われた通りに作るから、必要な機能を考えるへ。企画段階から関わるエンジニア",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/qRKjY56?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334938",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "モダンなReact環境で挑む！/裁量のある環境で挑戦したい方募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/PM7gcQ3?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2335300",
       "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "PdMやCSと伴走｜事業開発に踏み込みプロダクトの正解を探る開発者募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/6WWb7KK?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2335328",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "Python / PHP｜業界1ビッグデータを駆使してシステム開発者、求。",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/dYtbzdU?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2335009",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "大学発ベンチャー/地方の人手不足解消DX/フロントエンドエンジニア募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/XZYEcar?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334940",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "わんこ好き募集！！ペット系のプロダクトを形にするWebエンジニアさん募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/BMK9Z1Z?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2335114",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "AIプロダクトを設計開発するエンジニア募集",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/rJC2Wqa?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2326462",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "鹿児島／フロントエンドエンジニアを募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/2q7FQaW?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334949",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "事業拡大に伴い積極採用中！急成長ベンチャーで一緒に開発を楽しみませんか？",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/hprpcfg?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334891",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "大型タッチパネルを使った未来の外食体験を開発する保守エンエンジニア募集",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/2rCra1L?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2301105",
+      "companyType": "該当なし",
+      "sesFlag": false
+    },
+    {
+      "title": "PL・大阪｜要件定義からチーム統率まで、成長フェーズを牽引せよ",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/3ZZ96zC?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334294",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "東京で通用するエンジニアになる土台は岩手に｜自社開発で学び挑戦する環境",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/bEMgWBv?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334348",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "大阪｜受賞歴あり｜超成長ベンチャーで爆速成長したいwebマーケ人材募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/mnUvikZ?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334728",
+      "companyType": "該当なし",
+      "sesFlag": false
+    },
+    {
+      "title": "Web3の最前線へ。技術で 次世代のウォレットを創るエンジニア募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/ipFSGFY?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2328546",
+      "companyType": "該当なし",
+      "sesFlag": false
+    },
+    {
+      "title": "中堅エンジニア歓迎｜その技術、誰のため？社会を変えるPJで経験を活かそう",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/th6nXtV?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2071080",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "救急医療×SaaS 1→10を牽引するリードエンジニア募集",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/2bEqkNY?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334406",
+      "companyType": "該当なし",
+      "sesFlag": false
+    },
+    {
+      "title": "AIエンジニア｜技術者の枠を超える、市場価値の非連続な上昇。",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/UCDAqUB?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334372",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "仕様書通りのコーディングはもう卒業。システム構成から提案できるエンジニアへ",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/wPL87EP?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334267",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "ストレスフリーに働ける！市場価値の高いインフラエンジニアを募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/nRNLqD4?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334082",
+      "companyType": "受託",
+      "sesFlag": false
+    },
+    {
+      "title": "エンジニア経験者積極採用中！拡大中ベンチャーにあなたの力貸してください！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/xNzTjG5?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334259",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "高速フィードバック、Python/Django開発・独学の人材も募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/N49vvPQ?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2323990",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "価値ある出会い体験をプロダクトで形にする｜シニアフルスタックエンジニア募集",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/GP5oGQi?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334092",
+      "companyType": "該当なし",
+      "sesFlag": false
+    },
+    {
+      "title": "世界に誇れる沿線のデジタル変革の中核を担うサーバーサイドエンジニア募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/bDvx3jf?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2334109",
+      "companyType": "該当なし",
       "sesFlag": false
     },
     {
@@ -15,302 +199,6 @@
       "topImagePic": "https://images.wantedly.com/i/SUUd74E?w=640&h=272",
       "wantedlyUrl": "https://www.wantedly.com/projects/2333679",
       "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "スモールビジネスを支える与信企画メンバーを募集！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/RJrePbp?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333627",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "生成AI SaaSのサーバーサイド開発",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/XrYMPK6?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333513",
-      "companyType": "自社/受託",
-      "sesFlag": false
-    },
-    {
-      "title": "自社開発｜急成長中配信サービスのWebエンジニアを募集！テスター期間なし！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/gx3NjSw?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333475",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "AIエンジニア／PM／フルスタック幅広く募集！急速拡大するAI企業をリード",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/JFwwjxw?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333512",
-      "companyType": "自社/受託",
-      "sesFlag": false
-    },
-    {
-      "title": "WebとAIでプロダクトを育てる仕事",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/yUWS15A?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2326421",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "大阪｜受賞歴あり｜超成長ベンチャーで爆速成長したいwebマーケ人材募集！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/qcD1TnC?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333357",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "AIエンジニア｜0から100億を創り上げた専門家たちと技術で事業をハック",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/JNVnPKf?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333462",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "大阪｜関西でも最先端の開発はできる。市場価値を高める本質的な課題解決を。",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/nNEFrrV?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2333091",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "エンジニアが主役の会社で、あなたのキャリアを自由に描きませんか？",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/VUZtn6e?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332791",
-      "companyType": "受託",
-      "sesFlag": false
-    },
-    {
-      "title": "複雑な仕様を技術で攻略せよ/Next.jsでチケットのシステム開発に挑戦！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/CJ4nJFt?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332637",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "医療課題を技術で変える。3万人の医師が使うプロダクトのリードエンジニア募集",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/tq4zPdg?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332916",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "日常生活を変えるデジタルプラットフォーム構築：Webフロントエンジニア",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/3NRFYvU?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332838",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "Pythonだけ知っていればこの世界ではWebエンジニアとして生きられる？",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/VtArJy5?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332271",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "デザインにこだわる組織でUI構築！多彩な案件をリードするエンジニア募集！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/9NvAd8y?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332210",
-      "companyType": "受託",
-      "sesFlag": false
-    },
-    {
-      "title": "GovTech｜経営管理SaaS｜スタートアップのバックエンド開発",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/yu2GhP4?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332316",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": " webエンジニア募集！三井物産×KDDIの人流データまちづくり事業",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/gFKPinc?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332377",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "レビュー文化をつくる。制作現場のためのコミュニケーションツールの開発業務",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/igKq85P?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332212",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "VPoE候補としてエンジニア組織をリードしてくれる方募集！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/YaK5pPH?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332302",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "AIエージェント×大手金融｜技術リードとして参画するWebエンジニア",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/yN4Ac48?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332153",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "新しい経済圏を創る。Web3 ウォレット開発をリードするエンジニア！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/YqCqv7a?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2328974",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "ただのコード書きで終わらない。D2C事業をグロースさせる攻めのエンジニアを",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/ZQB4koa?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331796",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "技術を成果に変える。事業にインパクトある開発をしたいエンジニア求ム！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/e96epZt?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332066",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "社会人インターン！｜実際の開発現場に挑戦できる！！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/aRTNuiD?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331871",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "地方から首都圏案件へ挑戦！顧客課題に正面から向き合いたいエンジニア求ム。",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/YyvLp3p?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2332017",
-      "companyType": "受託",
-      "sesFlag": false
-    },
-    {
-      "title": "バックエンド×AI×アバター|国内大手や海外展開を支える基盤の強化",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/wpqqZZy?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331788",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "3D技術×医療機器の急成長ベンチャーのWebエンジニア募集！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/WAP4d3u?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331900",
-      "companyType": "自社",
-      "sesFlag": false
-    },
-    {
-      "title": "自分で学び、選び、挑戦できる｜技術好奇心が歓迎されるエンジニアチームへ",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/F4NTMGz?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2329662",
-      "companyType": "受託",
-      "sesFlag": false
-    },
-    {
-      "title": "安心して自分の力を伸ばせる環境へ｜エンジニア募集",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/LEPdyc9?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2327671",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "東京採用！社会を変えたい役員と働く！経験ゼロから始めるエンジニア募集！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/qPE3UMJ?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331454",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "Go×ブロックチェーン｜高パフォーマンスなバックエンドを作るエンジニア募集",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/afsFsHG?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331541",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "CES2026出展｜未来のくらしのスタンダードつくるWebエンジニア",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/icKMd7d?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331316",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "Java歓迎｜保守から開発・設計へキャリアアップ！大手案件多数",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/SnXzUoL?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331444",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "フルスタックエンジニア募集！三越伊勢丹のDXを加速させる！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/iXUut3w?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331533",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "学びながら成長できるWEBエンジニア募集！代表直下ポジション",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/E6hNUmF?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331033",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "デザイン×AIの未来を実装するフロントエンドエンジニア募集！",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/bZ1LaVu?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331329",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "自社開発！ ベビーテック企業の次なるステップを共にするエンジニアを全国募集",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/E3T8YUD?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331375",
-      "companyType": "該当なし",
-      "sesFlag": false
-    },
-    {
-      "title": "生成AI×エンタメ！UI/UX・体験設計をリードするUnityエンジニア",
-      "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/bVukDLh?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2331252",
-      "companyType": "該当なし",
       "sesFlag": false
     }
   ]
