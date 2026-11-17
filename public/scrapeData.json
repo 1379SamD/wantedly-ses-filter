@@ -1,19 +1,59 @@
 {
-  "lastUpdated": "2026-11-15T21:34:38.085Z",
+  "lastUpdated": "2026-11-17T00:42:54.162Z",
   "data": [
     {
-      "title": "要件定義から技術選定まで、TypeScriptで自社開発に挑めます",
+      "title": "React×TypeScript｜画面の向こうのユーザーを考えるエンジニア",
       "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/xBGzRe4?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2632139",
-      "companyType": "該当なし",
+      "topImagePic": "https://images.wantedly.com/i/a2VNnN6?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2614739",
+      "companyType": "自社",
       "sesFlag": false
     },
     {
-      "title": "Go×AIの最前線へ！技術力を活かしてプロダクトの未来を切り拓く！",
+      "title": "AXコンサル企業｜あなたの得意を生かして個性豊かなチームで働きませんか？",
       "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/ebQXz6r?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2630576",
+      "topImagePic": "https://images.wantedly.com/i/AFDhSC3?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2608051",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "エネルギー×Tech｜事業拡大フェーズを加速させるエンジニアを募集！！！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/iP2f1as?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2615830",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "個人プレイではなく、仲間との連携を楽しみながら大きな価値を産み出そう！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/KxQFvBe?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2618614",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "エンジニアに挑戦したい！を叶えます／異業種からAIエンジニアに挑戦！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/hN4sfDG?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2632902",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "自ら改善を企画する！バックエンドエンジニア募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/pkJRoQd?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2608763",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "急成長ベンチャーで中核メンバーを募集！勢いのあるチームで成長しませんか？",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/DhQmY86?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2606289",
       "companyType": "自社/受託",
       "sesFlag": false
     },
@@ -26,11 +66,51 @@
       "sesFlag": false
     },
     {
-      "title": "M&A・内部統制の仕事をAIで作り直す。プロダクト全体を担うエンジニア",
+      "title": "AI駆動開発でマルチクラウドAI基盤を構築｜クラウドエンジニア",
       "companyName": "No company-name found",
-      "topImagePic": "https://images.wantedly.com/i/PU3a1TT?w=640&h=272",
-      "wantedlyUrl": "https://www.wantedly.com/projects/2629107",
+      "topImagePic": "https://images.wantedly.com/i/JqqCvA3?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2631070",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "ルーティンを回すだけで評価が頭打ちなら｜ルーティンを消す側へ！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/3nPRihb?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2629921",
       "companyType": "該当なし",
+      "sesFlag": false
+    },
+    {
+      "title": "開発組織立ち上げ。1人目のエンジニアを募集します",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/q77M7s2?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2629444",
+      "companyType": "自社",
+      "sesFlag": false
+    },
+    {
+      "title": "スクール卒業生も活躍中！まずは開発経験を積みたいエンジニア志望者募集！",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/CzbUynH?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2630894",
+      "companyType": "自社/受託",
+      "sesFlag": false
+    },
+    {
+      "title": "受託から、仕様を決める側へ。OpenAI最上位で書くTypeScript",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/jdwEnTc?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2629118",
+      "companyType": "該当なし",
+      "sesFlag": false
+    },
+    {
+      "title": "エンジニア経験者歓迎｜知識を振り回すのではなく授ける側へ｜経験なしでもOK",
+      "companyName": "No company-name found",
+      "topImagePic": "https://images.wantedly.com/i/AbaMhsq?w=640&h=272",
+      "wantedlyUrl": "https://www.wantedly.com/projects/2627266",
+      "companyType": "自社",
       "sesFlag": false
     }
   ]
